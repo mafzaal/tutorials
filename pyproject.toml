@@ -11,4 +11,5 @@ dependencies = [
     "langgraph>=0.5.4",
     "openai>=1.97.1",
     "python-dotenv>=1.1.1",
+    "rich>=14.1.0",
 ]
