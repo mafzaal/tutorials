@@ -1,0 +1,68 @@
+{
+  "name": "LLM Tool Calling to ReAct Agent Tutorial",
+  "image": "mcr.microsoft.com/devcontainers/python:3.13",
+  
+  // Features to add to the dev container
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+
+  // Configure tool-specific properties
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.terminal.activateEnvironment": true,
+        "python.analysis.autoImportCompletions": true,
+        "python.analysis.typeCheckingMode": "basic",
+        "jupyter.askForKernelRestart": false,
+        "jupyter.interactiveWindow.creationMode": "perFile",
+        "files.associations": {
+          "*.ipynb": "jupyter-notebook"
+        },
+        "notebook.cellToolbarLocation": {
+          "default": "right",
+          "jupyter-notebook": "left"
+        }
+      },
+      
+      // Extensions to install
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers",
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "bradlc.vscode-tailwindcss",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "charliermarsh.ruff",
+        "tamasfe.even-better-toml",
+        "redhat.vscode-yaml",
+        "ms-vscode.vscode-json"
+      ]
+    }
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally
+  "forwardPorts": [8000, 8080, 3000],
+
+  // Use 'postCreateCommand' to run commands after the container is created
+  "postCreateCommand": "bash .devcontainer/setup.sh",
+
+  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root
+  "remoteUser": "vscode",
+
+  // Set environment variables
+  "containerEnv": {
+    "PYTHONPATH": "/workspaces/tutorials",
+    "JUPYTER_ENABLE_LAB": "yes"
+  },
+
+  // Mount the local machine's ssh agent if one is running
+  "mounts": [
+    "source=/tmp,target=/tmp,type=bind,consistency=cached"
+  ]
+}
