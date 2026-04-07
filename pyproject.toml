@@ -9,7 +9,10 @@ dependencies = [
     "langchain>=0.3.27",
     "langchain-openai>=0.3.28",
     "langgraph>=0.5.4",
+    "matplotlib>=3.10.8",
+    "numpy>=2.4.4",
     "openai>=1.97.1",
     "python-dotenv>=1.1.1",
     "rich>=14.1.0",
+    "scipy>=1.17.1",
 ]
